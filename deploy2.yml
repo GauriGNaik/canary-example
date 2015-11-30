@@ -1,0 +1,20 @@
+---
+- hosts: all
+  vars_files:
+    - vars.yml
+  sudo: true
+  sudo_user: root
+
+  tasks:  
+    - name: clone project repo in destination
+      git: repo={{ project_repo }} dest={{ project_root }} accept_hostkey=true
+      
+    - name: install npm
+      npm: path=/var/projects/example
+      
+    - name: Start Redis
+      service: name=redis-server state=started
+      
+    - name: run the app
+      command: forever start --minUptime 1000 --spinSleepTime 1000 /var/projects/example/app_with_feature.js 107.170.66.111
+   

@@ -1,0 +1,19 @@
+---
+- hosts: all
+  vars_files:
+    - vars.yml
+  sudo: true
+
+  tasks:  
+    - name: Create the project directory.
+      file: state=directory path={{ project_root }}
+
+    - name: Install required system packages.
+      apt: pkg={{ item }} state=installed update-cache=yes
+      with_items: "{{ system_packages }}"
+      
+    - name: Linking nodejs to run as node 
+      file: src=/usr/bin/nodejs dest=/usr/bin/node state=link
+      
+    - name: Install forever globally
+      npm: name=forever global=yes state=latest

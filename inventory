@@ -1,0 +1,2 @@
+[webservers]
+node0 ansible_ssh_host=107.170.66.111 ansible_ssh_user=root ansible_ssh_private_key_file=/Users/gaurigurunathnaik/.ssh/id_rsa

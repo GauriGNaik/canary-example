@@ -1,0 +1,11 @@
+---
+project_name: example
+project_root: /var/projects/example
+project_repo: git@github.com:GauriGNaik/example.git
+ver: 1.0.0
+system_packages:
+  - build-essential
+  - nodejs
+  - npm
+  - git
+  - redis-server
