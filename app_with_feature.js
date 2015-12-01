@@ -141,12 +141,12 @@ setInterval( function ()
   
   if(parseInt(cpuLoadPercent) > 90) {
     flag = 0;
-    sendAlert(flag);
+    //sendAlert(flag);
     status = 'true';
   }
   if(parseInt(memLoadPercent) > 90) {
     flag = 1;
-    sendAlert(flag);
+    //sendAlert(flag);
     status = 'true';
   }
   
