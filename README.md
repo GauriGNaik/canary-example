@@ -1,1 +1,1 @@
-# canary-example
+# example

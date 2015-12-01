@@ -45,12 +45,12 @@ function sendAlert(flag) {
                                 else 
                                 console.log('Message has been sent for overloading the cpu');
                                // console.log(message.sid);
-                               
+
                                 console.log('Message sent on:');
                                 console.log(message.dateCreated);
                                   } 
                       else {
-                              console.log('Oops! There was an error.');
+                              console.log('There was an error.');
                             }
         });
 
@@ -79,7 +79,7 @@ var client = redis.createClient(6379, '127.0.0.1', {})
 
 client.set("devOpsKey", "false");
 app.configure(function(){
-  app.set('port', process.env.PORT || 3002);
+  app.set('port', process.env.PORT || 3000);
   app.set('views', __dirname + '/views');
   app.set('view engine', 'jade');
   app.use(express.favicon());
@@ -106,7 +106,8 @@ app.get('/about', function(req, res){
 
   client.get("devOpsKey", function(err,value){ 
     if (err) throw err
-    console.log("listening at port 3000 "+value);
+    console.log("listening at port 3000 ");
+    console.log("Value of the key is ", value);
     //console.log(value);
     //res.send(value);
     if(value=="true"){
@@ -156,5 +157,5 @@ setInterval( function ()
 
 }, 2000);
 
-app1.listen(3003);
+app1.listen(3001);
 
