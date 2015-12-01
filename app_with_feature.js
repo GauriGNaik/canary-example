@@ -24,7 +24,7 @@ var twilio = require('twilio');
 var flag = 0;
 var status = 'false';
 function sendAlert(flag) {
-         var client = new twilio.RestClient('ACf9113a5baaae60a2930c19e1deef79ba', '21f1b16e59161e71e83a532dea5c74cc');
+         var client = new twilio.RestClient('', '');
          var message;
          if(flag) {
                    message = 'Message alert: Express application has exceeded memory usage threshold';
@@ -33,8 +33,8 @@ function sendAlert(flag) {
                   message = 'Message alert: Express application has overloaded the cpu'; 
           }
          client.sms.messages.create({
-                      to:'+19199854879',
-                      from:'+12013544955',
+                      to:'',
+                      from:'',
                       body:message,
                       
                       }, function(error, message) {
