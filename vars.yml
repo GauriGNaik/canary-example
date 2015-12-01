@@ -9,3 +9,5 @@ system_packages:
   - npm
   - git
   - redis-server
+  - redis-cli
+  - redis-tools
