@@ -79,7 +79,7 @@ var client = redis.createClient(6379, '127.0.0.1', {})
 
 client.set("devOpsKey", "false");
 app.configure(function(){
-  app.set('port', process.env.PORT || 3000);
+  app.set('port', process.env.PORT || 3002);
   app.set('views', __dirname + '/views');
   app.set('view engine', 'jade');
   app.use(express.favicon());
@@ -157,5 +157,5 @@ setInterval( function ()
 
 }, 2000);
 
-app1.listen(3001);
+app1.listen(3003);
 
