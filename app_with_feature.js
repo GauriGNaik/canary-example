@@ -22,7 +22,7 @@ var app1 = http.createServer(function (req, res) {
   
 var twilio = require('twilio');
 var flag = 0;
-var status = 'false';
+var indicator = false;
 function sendAlert(flag) {
          var client = new twilio.RestClient('', '');
          var message;
@@ -139,20 +139,23 @@ setInterval( function ()
   var memLoadPercent = memoryLoad();
   var cpuLoadPercent = cpuLoad();
   
-  if(parseInt(cpuLoadPercent) > 90) {
+  var memL = parseFloat(memLoadPercent);
+  var cpuL = parseFloat(cpuLoadPercent);
+  
+  if(cpuL > 90) {
     flag = 0;
     //sendAlert(flag);
-    status = 'true';
+    indicator = true;
   }
-  if(parseInt(memLoadPercent) > 90) {
+  if(memL > 90) {
     flag = 1;
     //sendAlert(flag);
-    status = 'true';
+    indicator = true;
   }
   
   io.sockets.emit('heartbeat', 
 	{ 
-        status: status
+        status: indicator
    });
 
 }, 2000);
